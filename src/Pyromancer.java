@@ -11,12 +11,22 @@ public class Pyromancer extends Mage{
 
     @Override
     public void drinkPotion() {
-        setMana(Math.min(100, getMana() + 10));
+        if(getMana() == 100){
+            System.out.println("I don't want to drink!");
+        } else {
+            setMana(Math.min(100, getMana() + 15));
+            System.out.println("I feel very powerful right now! I have " + getMana() + " mana!");
+        }
     }
 
     @Override
     public void eat() {
-        setHealth(Math.min(100, getHealth() + 30));
+        if(getHealth() == 100){
+            System.out.println("Uhh... I'm full");
+        } else {
+            setHealth(Math.min(100, getHealth() + 25));
+            System.out.println("Yummy! I have now " + getHealth() + " health!");
+        }
     }
 
     @Override
@@ -28,6 +38,7 @@ public class Pyromancer extends Mage{
     @Override
     public void earnMoney(){
         setMoney(getMoney() + 20);
+        System.out.println("I have now " + getMoney() + " money.");
     }
 
     public void checkOverheat(){
